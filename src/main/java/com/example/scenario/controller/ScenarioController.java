@@ -15,6 +15,7 @@ public class ScenarioController {
 
     @PostMapping
     public ScenarioResponse generateScenario(@RequestBody ScenarioRequest request) {
+         request.validate(); // validate input
         return scenarioService.generateScenarios(request);
     }
 }
