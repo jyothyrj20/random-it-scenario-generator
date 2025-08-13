@@ -15,4 +15,20 @@ public class ScenarioRequest {
     public void setEnvironment(String environment) { this.environment = environment; }
     public int getCount() { return count; }
     public void setCount(int count) { this.count = count; }
+
+    // For validating error
+    public void validate() {
+        if (technology == null || technology.isEmpty()) {
+            throw new IllegalArgumentException("Technology must not be empty");
+        }
+        if (role == null || role.isEmpty()) {
+            throw new IllegalArgumentException("Role must not be empty");
+        }
+        if (environment == null || environment.isEmpty()) {
+            throw new IllegalArgumentException("Environment must not be empty");
+        }
+        if (count <= 0) {
+            throw new IllegalArgumentException("Count must be greater than 0");
+        }
+    }
 }
